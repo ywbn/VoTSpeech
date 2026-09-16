@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07110f">
+  <meta name="description" content="指令驱动语音生成模型的对比试听 Demo。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Voice Design · Model Demo</title>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="返回顶部"><span class="brand-mark"><i></i><i></i><i></i><i></i><i></i></span><span>VOICE <b>DESIGN</b></span></a>
+    <div class="top-meta"><span class="live-dot"></span> 6 MODELS <span>·</span> 10 PROMPTS <span>·</span> ZH</div>
+  </header>
+
+  <main id="top">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">INSTRUCTION-GUIDED SPEECH SYNTHESIS</p>
+        <h1>让声音，准确抵达<br><em>文字背后的意图。</em></h1>
+      </div>
+      <p class="intro-copy">同一段文本、同一条声音指令，横向试听六种语音生成模型。比较它们对音色、情绪与角色表达的理解。</p>
+    </section>
+
+    <section class="lab" aria-label="模型试听台">
+      <aside class="sample-nav">
+        <div class="nav-head"><span>TEST SET</span><span id="sampleCount">01 / 10</span></div>
+        <div class="filters" id="filters" aria-label="按任务类型筛选"></div>
+        <div class="sample-list" id="sampleList"></div>
+      </aside>
+
+      <div class="workspace">
+        <div class="prompt-card">
+          <div class="prompt-meta">
+            <span id="conditionBadge">APS</span>
+            <span id="datasetLabel">InstructTTSEval</span>
+            <span class="prompt-index" id="promptIndex">S01</span>
+          </div>
+          <div class="prompt-grid">
+            <div><p class="label">朗读文本 / TEXT</p><p class="target-text" id="targetText"></p></div>
+            <div><p class="label">声音指令 / VOICE INSTRUCTION</p><p class="instruction" id="instruction"></p></div>
+          </div>
+        </div>
+
+        <div class="compare-head">
+          <div><p class="label">MODEL OUTPUTS</p><h2>模型试听</h2></div>
+          <p>点击波形任意位置跳转 · 播放新音频会自动暂停上一条</p>
+        </div>
+        <div class="players" id="players" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="method">
+      <p class="eyebrow">LISTENING PROTOCOL</p>
+      <div class="method-grid">
+        <h2>一套指令，<br>三种控制维度。</h2>
+        <div class="method-item"><span>01</span><h3>APS</h3><p>细粒度属性描述，控制性别、音高、语速、音色与情绪等声学特征。</p></div>
+        <div class="method-item"><span>02</span><h3>DSD</h3><p>自然语言声音描述，在整体语境中塑造说话方式与表达质感。</p></div>
+        <div class="method-item"><span>03</span><h3>RP</h3><p>角色扮演提示，以身份、场景与沟通目的驱动声音表现。</p></div>
+      </div>
+    </section>
+  </main>
+  <footer><span>VOICE DESIGN MODEL COMPARISON</span><span>60 AUDIO SAMPLES · 2026</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
