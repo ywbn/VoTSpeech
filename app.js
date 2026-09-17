@@ -26,11 +26,11 @@ const samples = [
   },
   {
     "id": "S03",
-    "sourceId": "zh_39",
+    "sourceId": "zh_387",
     "dataset": "InstructTTSEval",
     "condition": "APS",
-    "text": "好吃的冰糖葫芦属第一，我要成了娟儿，天天得拿冰糖葫芦当饭吃。",
-    "instruction": "性别: 男童. 音高: 童声尖亮，音调上扬. 语速: 语速轻快，略显急切. 音量: 音量饱满，充满热情. 年龄: 学龄儿童期. 清晰度: 吐字清晰，略带儿化. 流畅度: 表达流畅，语气活泼. 口音: 普通话，京腔明显. 音色质感: 音色清脆，富有童真. 情绪: 兴奋高昂，充满向往. 语调: 语调夸张，富于变化. 性格: 活泼外向，想象力强. 角色: 天真烂漫的幻想者."
+    "text": "刚刚长大了，一定会开飞船的。",
+    "instruction": "性别: 女性童声. 音高: 典型女童高音. 语速: 语速舒缓平稳. 音量: 音量初始轻柔，后趋响亮清晰. 年龄: 幼年儿童. 清晰度: 吐字清晰圆润. 流畅度: 言语流畅自然. 口音: 标准普通话. 音色质感: 音色清脆甜美，略带稚气. 情绪: 由初始沉吟转为坚定自信与向往. 语调: 起始平缓，后半句语调上扬，强调肯定. 性格: 天真乐观，富有梦想."
   },
   {
     "id": "S04",
@@ -82,22 +82,6 @@ const samples = [
   },
   {
     "id": "S10",
-    "sourceId": "zh_903",
-    "dataset": "InstructTTSEval",
-    "condition": "APS",
-    "text": "娃儿之间打个架有啥子了不得嘛，打一会儿就好了噻。",
-    "instruction": "性别: 男性. 音高: 男性中低音，音高稳定. 语速: 语速稍快且平稳. 音量: 音量清晰且响亮. 年龄: 中年. 清晰度: 吐字清晰准确. 流畅度: 表达流畅无迟疑. 口音: 浓厚的川渝方言. 音色质感: 嗓音略带沙哑浑厚. 情绪: 不以为然的轻松感. 语调: 生活化的随意口吻. 性格: 豁达务实，见怪不怪."
-  },
-  {
-    "id": "S11",
-    "sourceId": "zh_974",
-    "dataset": "InstructTTSEval",
-    "condition": "APS",
-    "text": "咱以前答应过人家玉树啊，你忘了啊。他不能说话，不算话呀，再说了，他就是不能跟杨思雨好。",
-    "instruction": "性别: 男性. 音高: 男性常规音高，句末略有起伏. 语速: 语速较快，略带急促. 音量: 正常偏响亮，偶有增强. 年龄: 中年男性. 清晰度: 吐字清晰. 流畅度: 整体流畅，偶有语气停顿. 口音: 标准普通话，略带北方腔调. 音色质感: 略带沙哑，声音坚实. 情绪: 略显焦急，带有辩解意味. 语调: 强调语气，句末常上扬. 性格: 略显急切，态度坚决."
-  },
-  {
-    "id": "S12",
     "sourceId": "zh_977",
     "dataset": "InstructTTSEval",
     "condition": "APS",
@@ -105,7 +89,7 @@ const samples = [
     "instruction": "性别: 典型成年男性语音. 音高: 男性常态音高，偶因强调而上扬. 语速: 整体语速偏快，节奏鲜明. 音量: 正常谈话音量，强调处略有增强. 年龄: 青壮年阶段. 清晰度: 吐字清晰准确，发音标准. 流畅度: 言语高度流畅，无明显停顿. 口音: 标准普通话，几无口音痕迹. 音色质感: 音质清亮坚实，富有穿透力. 情绪: 带有批判意味，略显不满与愤慨. 语调: 陈述语气坚定，语流富于顿挫. 性格: 自信果断，表达直接有力."
   },
   {
-    "id": "S13",
+    "id": "S11",
     "sourceId": "zh_505",
     "dataset": "InstructTTSEval",
     "condition": "APS",
@@ -113,7 +97,7 @@ const samples = [
     "instruction": "性别: 女性. 音高: 女性常态音高，结尾激动拔高. 语速: 语速由平缓渐快，结尾急促. 音量: 音量由正常渐强，结尾高亢. 年龄: 中老年. 清晰度: 吐字清晰，字字铿锵. 流畅度: 表达流畅，一气呵成. 口音: 标准普通话，地域特征不明显. 音色质感: 音色坚实，激动时略显锐利. 情绪: 由隐忍悲情转为愤慨坚决. 语调: 语调由平缓转激昂，富含警告意味. 性格: 意志刚强，决断不容挑战."
   },
   {
-    "id": "S14",
+    "id": "S12",
     "sourceId": "zh_11",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -121,7 +105,7 @@ const samples = [
     "instruction": "展现出果敢坚定、充满理想与热忱的青年女性音色特征,音高保持中高音区,语调抑扬顿挫分明,发音标准且吐字清晰,语句显得流畅连贯,表现出由沉稳转向激昂的情绪。"
   },
   {
-    "id": "S15",
+    "id": "S13",
     "sourceId": "zh_29",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -129,15 +113,15 @@ const samples = [
     "instruction": "展现出带颗粒感且坚实的男声特质,语速先从容后略加快,随着语末略有上扬,轻松且略带期待,表达语句时声音略强调显得更为有力。"
   },
   {
-    "id": "S16",
-    "sourceId": "zh_39",
+    "id": "S14",
+    "sourceId": "zh_387",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
-    "text": "好吃的冰糖葫芦属第一，我要成了娟儿，天天得拿冰糖葫芦当饭吃。",
-    "instruction": "语音呈现出男童音调的尖亮上扬,语调变化夸张,富于想象力和幻想气质。说话时普通话中带有明显的京腔儿化音,声音充满了对未来的向往与兴奋。"
+    "text": "刚刚长大了，一定会开飞船的。",
+    "instruction": "以天真乐观和充满梦想的女性童声为基础,音色清脆甜美,流畅地表达出未来探索者的信念。语音从轻柔开始,并随着情绪的变化变得响亮清晰,语调通过明显的尾音上扬来强调肯定性。"
   },
   {
-    "id": "S17",
+    "id": "S15",
     "sourceId": "zh_417",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -145,7 +129,7 @@ const samples = [
     "instruction": "声音采用标准普通话发音,清晰度高且发音明确。语音的整体语调要质问性强,随着情绪的起伏鲜明变化,展现出果敢自信的态度。音量在初始时保持平稳,并在情绪激动时明显增大。"
   },
   {
-    "id": "S18",
+    "id": "S16",
     "sourceId": "zh_634",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -153,7 +137,7 @@ const samples = [
     "instruction": "声音应具备中青年男性的特质,以坚实而略显硬朗的音质表述。保持严肃说理的情绪基调,语气中带有轻微的责备。音量要充足,语调肯定并在句尾部分上扬。表达流畅,清晰度高。"
   },
   {
-    "id": "S19",
+    "id": "S17",
     "sourceId": "zh_755",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -161,7 +145,7 @@ const samples = [
     "instruction": "语音表现需富有力度,中音区的男性声线卷积着明显的情绪波动,音量较大,使用标准普通话表达质询时的激动和刚正不阿的性格。"
   },
   {
-    "id": "S20",
+    "id": "S18",
     "sourceId": "zh_833",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -169,7 +153,7 @@ const samples = [
     "instruction": "以标准普通话为基础,音色需显得清亮且略带甜美,语速保持偏快但自然流畅,语气外向开朗,富有感染力。"
   },
   {
-    "id": "S21",
+    "id": "S19",
     "sourceId": "zh_838",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -177,7 +161,7 @@ const samples = [
     "instruction": "保持语气的自信与傲慢,采用正常的音量,但在强调时稍显突出,运用标准的普通话音,清晰表达中不失略显骄纵的色彩,语速快速但准确。"
   },
   {
-    "id": "S22",
+    "id": "S20",
     "sourceId": "zh_888",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -185,23 +169,7 @@ const samples = [
     "instruction": "保持中年女性的直爽风格,语音需体现急切与焦急,在关键句末使用偏高的女性声线上扬,强调部分语句时音质略带锐利,充满不满与指责的情绪,音量较大。"
   },
   {
-    "id": "S23",
-    "sourceId": "zh_903",
-    "dataset": "InstructTTSEval",
-    "condition": "DSD",
-    "text": "娃儿之间打个架有啥子了不得嘛，打一会儿就好了噻。",
-    "instruction": "以豁达务实的中年长辈形象为基调,声音音量清晰且响亮,采用标准的川渝方言表达,语调生活化且随意,音高稳定在男性中低音。"
-  },
-  {
-    "id": "S24",
-    "sourceId": "zh_974",
-    "dataset": "InstructTTSEval",
-    "condition": "DSD",
-    "text": "咱以前答应过人家玉树啊，你忘了啊。他不能说话，不算话呀，再说了，他就是不能跟杨思雨好。",
-    "instruction": "以中年男性的声线呈现,坚持自然音高,语速较快略带急促,展现出标准普通话的北方腔调,情绪内含焦急和辩解色彩,吐字清晰流畅,偶有语气停顿,音色坚实略带沙哑,音量正常略响并时有增强。"
-  },
-  {
-    "id": "S25",
+    "id": "S21",
     "sourceId": "zh_977",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -209,7 +177,7 @@ const samples = [
     "instruction": "展现青壮年男性语音特质,以标准普通话为基础,发音清晰且流畅,音色清亮且有穿透力,在陈述时保持正常音量但偶尔在强调时有所增强,语气直接且果断。"
   },
   {
-    "id": "S26",
+    "id": "S22",
     "sourceId": "zh_505",
     "dataset": "InstructTTSEval",
     "condition": "DSD",
@@ -217,7 +185,7 @@ const samples = [
     "instruction": "声音应展现出中老年女性的特质,吐字清晰,前半段语速平缓,随着情感变化逐渐加快;音量正常开始,语气由隐忍转为愤慨,最终达到激昂高亢的状态。"
   },
   {
-    "id": "S27",
+    "id": "S23",
     "sourceId": "zh_11",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -225,7 +193,7 @@ const samples = [
     "instruction": "在辩论赛中陈述观点,从冷静分析到激昂陈述,充满对未来的期盼。"
   },
   {
-    "id": "S28",
+    "id": "S24",
     "sourceId": "zh_29",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -233,15 +201,15 @@ const samples = [
     "instruction": "结尾略微上扬,带着轻松笑意提醒对方别忘记,犹如一个老朋友的体贴关心。"
   },
   {
-    "id": "S29",
-    "sourceId": "zh_39",
+    "id": "S25",
+    "sourceId": "zh_387",
     "dataset": "InstructTTSEval",
     "condition": "RP",
-    "text": "好吃的冰糖葫芦属第一，我要成了娟儿，天天得拿冰糖葫芦当饭吃。",
-    "instruction": "小朋友兴奋地讲述他最新的奇妙发现,语速快,口气轻快,带着京腔,声音清脆,童真十足。"
+    "text": "刚刚长大了，一定会开飞船的。",
+    "instruction": "小公主满怀憧憬地描述她心中的理想国度。"
   },
   {
-    "id": "S30",
+    "id": "S26",
     "sourceId": "zh_417",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -249,7 +217,7 @@ const samples = [
     "instruction": "在法庭上据理力争的律师。"
   },
   {
-    "id": "S31",
+    "id": "S27",
     "sourceId": "zh_634",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -257,7 +225,7 @@ const samples = [
     "instruction": "男人在和对方讨论问题时,声音坚定有力,适中语速,声音清晰,每个字都分明,有时带着一种略微责备的态度。"
   },
   {
-    "id": "S32",
+    "id": "S28",
     "sourceId": "zh_755",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -265,7 +233,7 @@ const samples = [
     "instruction": "就像是一个义愤填膺的人在陈情时,情绪高涨且语速快,音调多有起伏。"
   },
   {
-    "id": "S33",
+    "id": "S29",
     "sourceId": "zh_833",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -273,7 +241,7 @@ const samples = [
     "instruction": "动漫少女开心地帮助朋友解决困难。"
   },
   {
-    "id": "S34",
+    "id": "S30",
     "sourceId": "zh_838",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -281,7 +249,7 @@ const samples = [
     "instruction": "在班级辩论赛上,用一种自信张扬又略带不耐的口吻发言。"
   },
   {
-    "id": "S35",
+    "id": "S31",
     "sourceId": "zh_888",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -289,23 +257,7 @@ const samples = [
     "instruction": "教师严厉地指导学生重新审视问题。"
   },
   {
-    "id": "S36",
-    "sourceId": "zh_903",
-    "dataset": "InstructTTSEval",
-    "condition": "RP",
-    "text": "娃儿之间打个架有啥子了不得嘛，打一会儿就好了噻。",
-    "instruction": "以一种不以为然的语调评论年轻人的小麻烦,语速稍快但清晰有力。"
-  },
-  {
-    "id": "S37",
-    "sourceId": "zh_974",
-    "dataset": "InstructTTSEval",
-    "condition": "RP",
-    "text": "咱以前答应过人家玉树啊，你忘了啊。他不能说话，不算话呀，再说了，他就是不能跟杨思雨好。",
-    "instruction": "在热烈讨论中努力说服他人的语气,带有一点争辩意味,声音稍微急促一些。"
-  },
-  {
-    "id": "S38",
+    "id": "S32",
     "sourceId": "zh_977",
     "dataset": "InstructTTSEval",
     "condition": "RP",
@@ -313,7 +265,7 @@ const samples = [
     "instruction": "说话像情感揭示专家,快节奏中带点愤慨和不满,但始终保持清晰流畅。"
   },
   {
-    "id": "S39",
+    "id": "S33",
     "sourceId": "zh_505",
     "dataset": "InstructTTSEval",
     "condition": "RP",
