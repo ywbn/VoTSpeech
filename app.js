@@ -274,20 +274,141 @@ const samples = [
   }
 ];
 
+const mintSamples = [
+  {
+    id: 'M01', sourceId: 'PLAN__zh__easy_composite_simple_comp_static__0001', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '你能帮我把那个拿过来吗？它放得太高了。',
+    instruction: '年龄：儿童, 性别：男性'
+  },
+  {
+    id: 'M02', sourceId: 'PLAN__zh__easy_composite_simple_comp_static__0002', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '人生中的许多事情，只有回头看的时候才能明白。',
+    instruction: '年龄：老年, 性别：女性'
+  },
+  {
+    id: 'M03', sourceId: 'PLAN__zh__easy_composite_simple_comp_static__0010', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '有些道理，是需要用一辈子的时间去慢慢理解的。',
+    instruction: '年龄：老年, 音色：沙哑'
+  },
+  {
+    id: 'M04', sourceId: 'PLAN__zh__easy_composite_simple_comp_static__0015', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '那座古老的石桥静静地横跨在河上，见证了无数个春去秋来和人世间的悲欢离合。',
+    instruction: '声音要听起来有厚度、有质感，像一个专业的男播音员。'
+  },
+  {
+    id: 'M05', sourceId: 'PLAN__zh__easy_composite_simple_comp_static__0032', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '那些过去的时光，像褪色的照片，偶尔会在脑海中浮现。',
+    instruction: '请轻声细语，带着一丝内敛的感觉来读。'
+  },
+  {
+    id: 'M06', sourceId: 'PLAN__zh__easy_composite_simple_comp_static__0062', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '当光线穿过三棱镜时，它会因为折射而分解成不同颜色的光谱。',
+    instruction: '你的声音要听起来很柔软，带有一种温柔的感觉。'
+  },
+  {
+    id: 'M07', sourceId: 'PLAN__zh__easy_style_direct_atomic_emotion__0020', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '我总觉得这件事好像有哪里不太对劲。',
+    instruction: '语气要略显焦躁不安。'
+  },
+  {
+    id: 'M11', sourceId: 'PLAN__zh__easy_timbre_direct_atomic_age__0009', dataset: 'MINT', condition: 'MINT', difficulty: 'EASY',
+    text: '我把东西放在桌子上了。',
+    instruction: '我想要一个听起来年纪比较大的声音。'
+  },
+  {
+    id: 'M13', sourceId: 'PLAN__zh__hard_composite_persona_scenario__0020', dataset: 'MINT', condition: 'MINT', difficulty: 'HARD',
+    text: '我们真的……再也回不去了吗？',
+    instruction: '这是一句有声书中的角色对白，请用略带夸张和戏剧性的语气来演绎。'
+  },
+  {
+    id: 'M15', sourceId: 'PLAN__zh__hard_composite_persona_stylized_persona__0030', dataset: 'MINT', condition: 'MINT', difficulty: 'HARD',
+    text: '知道了知道了，我去做还不行吗。真是的，一天到晚就知道使唤我，就不能让我休息一下吗？我的手都酸了，腰也疼，根本干不动活儿。',
+    instruction: '模仿一个被逼着做事的熊孩子，说话时唉声叹气，满腹牢骚。'
+  }
+];
+samples.push(...mintSamples);
+
+const instructionTranslations = {
+  'zh_11:APS': 'Gender: Female voice. Pitch: Mid-to-high female range with pronounced variation. Speaking rate: Steady at first, gradually faster later. Volume: Clear and resonant, growing with emotion. Age: Young woman. Clarity: Crisp, accurate articulation and standard pronunciation. Fluency: Smooth and connected, without hesitation. Accent: Standard Mandarin with a slight theatrical quality. Timbre: Clear, bright, and forceful. Emotion: Builds from composed to impassioned, full of conviction. Intonation: Strong, expressive rises and falls. Personality: Bold, determined, idealistic, and passionate.',
+  'zh_29:APS': 'Gender: Male. Pitch: Normal male range, rising slightly at the end. Speaking rate: Relaxed at first, slightly faster in the second half. Volume: Conversational, with mild emphasis. Age: Middle-aged man. Clarity: Clear, firm articulation. Fluency: Smooth and continuous. Accent: Mandarin with a Southern Min regional accent. Timbre: Slightly grainy and solid. Emotion: A casual reminder with mild anticipation. Intonation: Declarative with a reminding tone; the final question seeks confirmation. Personality: Direct, outgoing, and easygoing.',
+  'zh_387:APS': 'Gender: Young girl. Pitch: Typical high-pitched child voice. Speaking rate: Calm and even. Volume: Soft at first, then clearer and louder. Age: Young child. Clarity: Clear, rounded articulation. Fluency: Smooth and natural. Accent: Standard Mandarin. Timbre: Crisp, sweet, and childlike. Emotion: Moves from thoughtful to confident and hopeful. Intonation: Gentle at first, then rises in the latter half to emphasize certainty. Personality: Innocent, optimistic, and imaginative.',
+  'zh_417:APS': 'Gender: Male. Pitch: Low male range, rising at the end of questions. Speaking rate: Steady at first, then slightly faster to stress the challenge. Volume: Initially controlled, becoming markedly stronger when agitated. Age: Middle-aged. Clarity: Clear, standard articulation. Fluency: Smooth and uninterrupted. Accent: Formal Standard Mandarin. Timbre: Deep, solid, and powerful. Emotion: Shifts from solemn to impassioned and incredulous. Intonation: Strongly questioning with vivid emotional variation. Personality: Resolute, confident, and uncompromising.',
+  'zh_634:APS': 'Gender: Male. Pitch: Mid male range with a rising sentence ending. Speaking rate: Moderate, with key words stressed. Volume: Relatively loud and forceful. Age: Young to middle-aged adult. Clarity: Clear and distinct articulation. Fluency: Smooth, without obvious pauses. Accent: Standard Mandarin. Timbre: Solid and slightly tough. Emotion: Serious and reasoned, with a hint of reproach. Intonation: Assertive, ending as a rhetorical question. Personality: Confident, firm, and forthright.',
+  'zh_755:APS': 'Gender: Male. Pitch: Mid male range with elevated, highly varied intonation. Speaking rate: Fast, with a sense of urgency. Volume: Loud and forceful. Age: Middle-aged to elderly. Clarity: Clear, emphatic articulation. Fluency: Smooth and delivered in one continuous flow. Accent: Standard Mandarin. Timbre: Slightly husky yet full and powerful. Emotion: Agitated, expressing strong dissatisfaction and concern. Intonation: Strongly questioning, often rising at sentence endings. Personality: Upright, outspoken, and easily stirred.',
+  'zh_833:APS': 'Gender: Female. Pitch: High female range with a bright voice. Speaking rate: Fast and fluid. Volume: Clear, at an everyday conversational level. Age: Young woman. Clarity: Clear, standard articulation. Fluency: Smooth and continuous. Accent: Standard Mandarin. Timbre: Bright and slightly sweet. Emotion: Warm, friendly, and proactive. Intonation: Lively and engaging. Personality: Outgoing, cheerful, and helpful.',
+  'zh_838:APS': 'Gender: Young female. Pitch: High female range with a bright tone. Speaking rate: Fast and tightly paced. Volume: Normal conversational level, with occasional emphasis. Age: Teenage girl. Clarity: Clear and accurate articulation. Fluency: Smooth and continuous. Accent: Standard Mandarin without an obvious regional accent. Timbre: Crisp, slightly thin and sharp. Emotion: Confident and smug, with impatience and arrogance. Intonation: Frequent upward movement, assertive and challenging. Personality: Self-assured, flamboyant, somewhat spoiled, and impatient.',
+  'zh_888:APS': 'Gender: Female. Pitch: Relatively high female voice, rising at the end. Speaking rate: Fast and slightly urgent. Volume: Loud and powerful. Age: Middle-aged woman. Clarity: Clear and accurate articulation. Fluency: Smooth and continuous. Accent: Standard Mandarin. Timbre: Bright and slightly sharp. Emotion: Agitated, dissatisfied, and accusatory. Intonation: High and forceful, with clear emphasis. Personality: Frank and direct, speaking with urgency.',
+  'zh_977:APS': 'Gender: Adult male. Pitch: Normal male range, occasionally raised for emphasis. Speaking rate: Fast overall with a distinct rhythm. Volume: Normal conversational level, slightly stronger on emphasized phrases. Age: Young to middle-aged adult. Clarity: Clear, accurate, standard pronunciation. Fluency: Highly fluent, without noticeable pauses. Accent: Standard Mandarin with almost no regional coloring. Timbre: Bright, solid, and penetrating. Emotion: Critical, with dissatisfaction and indignation. Intonation: Firm and rhythmically varied. Personality: Confident, decisive, and direct.',
+  'zh_505:APS': 'Gender: Female. Pitch: Normal female range, rising sharply with emotion at the end. Speaking rate: Calm at first, gradually faster and urgent toward the end. Volume: Begins normally and grows into a forceful climax. Age: Middle-aged to elderly. Clarity: Clear and emphatic articulation. Fluency: Smooth and continuous. Accent: Standard Mandarin with little regional coloring. Timbre: Solid, becoming slightly sharp when agitated. Emotion: Moves from restrained sorrow to indignation and resolve. Intonation: Builds from calm to impassioned, carrying a warning. Personality: Strong-willed, decisive, and uncompromising.',
+
+  'zh_11:DSD': 'Use the voice of a bold, determined, idealistic, and passionate young woman. Keep the pitch in the mid-to-high range, with strongly expressive rises and falls. Use standard pronunciation and clear articulation, maintaining smooth, connected speech while moving emotionally from composure to passion.',
+  'zh_29:DSD': 'Use a solid male voice with a slightly grainy quality. Begin at a relaxed pace and accelerate slightly, ending with a gentle rise. Sound lighthearted and mildly expectant, adding subtle vocal emphasis for greater strength.',
+  'zh_387:DSD': 'Use an innocent, optimistic young girl voice filled with dreams. The timbre should be crisp and sweet, expressing conviction smoothly. Begin softly, then become louder and clearer as the emotion develops, with a noticeable upward ending that conveys certainty.',
+  'zh_417:DSD': 'Speak in clear, standard Mandarin with precise articulation. Use a strongly questioning tone and vivid emotional shifts to convey bold confidence. Keep the volume controlled at first, then increase it noticeably as the emotion intensifies.',
+  'zh_634:DSD': 'Use the solid, slightly tough voice of a young to middle-aged man. Maintain a serious, reasoned emotional tone with mild reproach. Keep the voice strong, the intonation assertive, and the sentence ending slightly raised. Speak smoothly and clearly.',
+  'zh_755:DSD': 'Deliver the line with a forceful mid-range male voice and clear emotional fluctuations. Speak loudly in Standard Mandarin, conveying agitation, righteous indignation, and an uncompromising personality while questioning the situation.',
+  'zh_833:DSD': 'Use Standard Mandarin with a bright, slightly sweet timbre. Speak quickly but naturally and smoothly, sounding outgoing, cheerful, and engaging.',
+  'zh_838:DSD': 'Maintain a confident and arrogant tone. Use normal volume with extra emphasis where needed, clear Standard Mandarin, and a slightly spoiled quality. Speak quickly but accurately.',
+  'zh_888:DSD': 'Use the direct manner of a middle-aged woman, sounding urgent and anxious. Raise the relatively high female voice at key sentence endings, make emphasized phrases slightly sharp, and convey dissatisfaction and accusation at a loud volume.',
+  'zh_977:DSD': 'Use the voice of a young adult man speaking clear, fluent Standard Mandarin. The timbre should be bright and penetrating. Keep a normal volume in declarative speech, occasionally strengthening emphasized words, with a direct and decisive tone.',
+  'zh_505:DSD': 'Use the voice of a middle-aged to elderly woman with clear articulation. Keep the first half calm and measured, then gradually accelerate as the emotion grows. Begin at a normal volume and shift from restrained emotion to indignation, ending in an impassioned climax.',
+
+  'zh_11:RP': 'Present an argument in a debate, moving from calm analysis to an impassioned statement filled with hope for the future.',
+  'zh_29:RP': 'End with a slight upward inflection and a relaxed smile, gently reminding the listener not to forget, like the considerate concern of an old friend.',
+  'zh_387:RP': 'A little princess speaks with excitement and longing about her ideal kingdom.',
+  'zh_417:RP': 'A lawyer argues forcefully and logically in court.',
+  'zh_634:RP': 'A man discusses an issue in a firm, powerful voice at a moderate pace. Every word is clear and distinct, with occasional mild reproach.',
+  'zh_755:RP': 'Speak like someone making an indignant appeal, with heightened emotion, a fast pace, and strongly varied pitch.',
+  'zh_833:RP': 'A cheerful anime girl helps a friend solve a problem.',
+  'zh_838:RP': 'Speak at a classroom debate with a confident, flamboyant, and slightly impatient manner.',
+  'zh_888:RP': 'A teacher sternly guides a student to reconsider the problem.',
+  'zh_977:RP': 'Speak like an expert exposing emotional manipulation: fast-paced, somewhat indignant and dissatisfied, yet always clear and fluent.',
+  'zh_505:RP': 'An authoritative female leader delivers an important family statement.',
+
+  'PLAN__zh__easy_composite_simple_comp_static__0001:MINT': 'Age: Child. Gender: Male.',
+  'PLAN__zh__easy_composite_simple_comp_static__0002:MINT': 'Age: Elderly. Gender: Female.',
+  'PLAN__zh__easy_composite_simple_comp_static__0010:MINT': 'Age: Elderly. Timbre: Hoarse.',
+  'PLAN__zh__easy_composite_simple_comp_static__0015:MINT': 'Use a rich, textured voice like a professional male announcer.',
+  'PLAN__zh__easy_composite_simple_comp_static__0032:MINT': 'Speak softly and gently, with a slightly reserved manner.',
+  'PLAN__zh__easy_composite_simple_comp_static__0062:MINT': 'Make your voice sound soft and tender.',
+  'PLAN__zh__easy_style_direct_atomic_emotion__0020:MINT': 'Use a slightly restless and anxious tone.',
+  'PLAN__zh__easy_timbre_direct_atomic_age__0009:MINT': 'Use a voice that sounds relatively old.',
+  'PLAN__zh__hard_composite_persona_scenario__0020:MINT': 'This is character dialogue from an audiobook. Perform it with a slightly exaggerated and dramatic tone.',
+  'PLAN__zh__hard_composite_persona_stylized_persona__0030:MINT': 'Imitate a mischievous child being forced to do a chore, speaking with sighs and constant complaints.'
+};
+
 const conditionOptions = [
   {key:'APS', label:'属性明细', note:'音高 · 音色 · 情绪'},
   {key:'DSD', label:'声音描述', note:'整体表达与质感'},
   {key:'RP', label:'角色场景', note:'身份 · 场景 · 目的'}
 ];
-const cases = samples.filter(sample => sample.condition === 'APS');
 const sampleMap = new Map(samples.map(sample => [`${sample.sourceId}:${sample.condition}`, sample]));
 const $ = id => document.getElementById(id);
-let currentCase = 0, condition = 'APS', activeAudio = null;
+let currentDataset = 'InstructTTSEval', currentCase = 0, condition = 'APS', activeAudio = null;
 const formatTime = value => Number.isFinite(value) ? `${Math.floor(value/60)}:${String(Math.floor(value%60)).padStart(2,'0')}` : '0:00';
 const bars = seed => Array.from({length:60},(_,i)=>18+((Math.sin((i+seed)*1.71)+1)*16+((i*seed)%13))).map(h=>`<i class="bar" style="--h:${Math.min(94,h)}%"></i>`).join('');
-const selectedSample = () => sampleMap.get(`${cases[currentCase].sourceId}:${condition}`);
+const currentCases = () => currentDataset === 'MINT' ? mintSamples : samples.filter(sample => sample.dataset === 'InstructTTSEval' && sample.condition === 'APS');
+const selectedSample = () => {
+  const sample = currentCases()[currentCase];
+  return currentDataset === 'MINT' ? sample : sampleMap.get(`${sample.sourceId}:${condition}`);
+};
+
+function renderDatasets(){
+  const options = [
+    {key:'InstructTTSEval', label:'INSTRUCT', count:'11'},
+    {key:'MINT', label:'MINT', count:'10'}
+  ];
+  $('datasetTabs').innerHTML = options.map(item=>`<button class="dataset-tab ${currentDataset===item.key?'active':''}" data-dataset="${item.key}"><span>${item.label}</span><b>${item.count}</b></button>`).join('');
+  $('datasetTabs').querySelectorAll('button').forEach(button=>button.onclick=()=>{
+    if(currentDataset===button.dataset.dataset)return;
+    stopAudio();currentDataset=button.dataset.dataset;currentCase=0;condition='APS';render();
+  });
+}
 
 function renderConditions(){
+  const switcher = $('conditionSwitcher');
+  switcher.hidden = currentDataset === 'MINT';
+  if(switcher.hidden){$('conditionTabs').innerHTML='';return;}
   $('conditionTabs').innerHTML=conditionOptions.map(item=>`<button class="condition-tab ${condition===item.key?'active':''}" role="tab" aria-selected="${condition===item.key}" data-condition="${item.key}"><span class="condition-code">${item.key}</span><span class="condition-label">${item.label}</span><span class="condition-note">${item.note}</span></button>`).join('');
   $('conditionTabs').querySelectorAll('button').forEach(button=>button.onclick=()=>{
     if(condition===button.dataset.condition)return;
@@ -295,7 +416,8 @@ function renderConditions(){
   });
 }
 function renderNav(){
-  $('sampleList').innerHTML=cases.map((sample,index)=>`<button class="sample-button ${index===currentCase?'active':''}" data-index="${index}" title="${sample.text}"><span class="sample-no">${String(index+1).padStart(2,'0')}</span><span class="sample-title">${sample.text}</span><span class="sample-type">3×</span></button>`).join('');
+  const cases = currentCases();
+  $('sampleList').innerHTML=cases.map((sample,index)=>`<button class="sample-button ${index===currentCase?'active':''}" data-index="${index}" title="${sample.text}"><span class="sample-no">${String(index+1).padStart(2,'0')}</span><span class="sample-title">${sample.text}</span>${currentDataset==='MINT'?'':'<span class="sample-type">3×</span>'}</button>`).join('');
   $('sampleList').querySelectorAll('button').forEach(button=>button.onclick=()=>{
     currentCase=Number(button.dataset.index);stopAudio();render();
     document.querySelector('.prompt-card').scrollIntoView({behavior:'smooth',block:'start'});
@@ -304,7 +426,8 @@ function renderNav(){
 function stopAudio(){if(activeAudio){activeAudio.pause();activeAudio=null;}}
 function player(model,index,sample){
   const wave=bars((currentCase+2)*(index+5)+condition.charCodeAt(0));
-  return `<article class="player" data-player="${index}"><div class="model-name">${model.name}</div><button class="play" aria-label="播放 ${model.name}"><svg viewBox="0 0 20 20"><path d="M5 3.5v13l11-6.5z"/></svg></button><div class="wave-wrap" role="slider" tabindex="0" aria-label="${model.name} 播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="wave">${wave}</div><div class="progress-fill" style="--progress:0%">${wave}</div></div><div class="time"><span>0:00</span> / <span>0:00</span></div><audio preload="metadata" src="audio/${model.key}/${sample.condition}/${sample.sourceId}.wav"></audio></article>`;
+  const audioPath = sample.dataset === 'MINT' ? `audio/${model.key}/MINT/${sample.sourceId}.wav` : `audio/${model.key}/${sample.condition}/${sample.sourceId}.wav`;
+  return `<article class="player" data-player="${index}"><div class="model-name">${model.name}</div><button class="play" aria-label="播放 ${model.name}"><svg viewBox="0 0 20 20"><path d="M5 3.5v13l11-6.5z"/></svg></button><div class="wave-wrap" role="slider" tabindex="0" aria-label="${model.name} 播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="wave">${wave}</div><div class="progress-fill" style="--progress:0%">${wave}</div></div><div class="time"><span>0:00</span> / <span>0:00</span></div><audio preload="metadata" src="${audioPath}"></audio></article>`;
 }
 function bindPlayers(){
   document.querySelectorAll('.player').forEach(row=>{
@@ -317,8 +440,10 @@ function bindPlayers(){
   });
 }
 function render(){
-  renderNav();renderConditions();const s=selectedSample();$('sampleCount').textContent=`${String(currentCase+1).padStart(2,'0')} / ${String(cases.length).padStart(2,'0')}`;$('conditionBadge').textContent=condition;$('datasetLabel').textContent=s.dataset;$('promptIndex').textContent=`CASE ${String(currentCase+1).padStart(2,'0')}`;$('targetText').textContent=s.text;$('instruction').textContent=s.instruction;$('players').innerHTML=models.map((m,i)=>player(m,i,s)).join('');bindPlayers();
-  document.querySelector('.prompt-card').dataset.condition=condition;
-  document.querySelectorAll('.prompt-grid,.players').forEach(node=>{node.classList.remove('content-enter');void node.offsetWidth;node.classList.add('content-enter')});
+  $('mintNote').hidden=currentDataset!=='MINT';
+  renderDatasets();renderNav();renderConditions();const cases=currentCases(),s=selectedSample(),badge=$('conditionBadge');$('sampleCount').textContent=`${String(currentCase+1).padStart(2,'0')} / ${String(cases.length).padStart(2,'0')}`;badge.hidden=currentDataset==='MINT';badge.textContent=condition;$('datasetLabel').textContent=s.dataset;$('promptIndex').textContent=`CASE ${String(currentCase+1).padStart(2,'0')}`;$('targetText').textContent=s.text;$('instruction').textContent=s.instruction;$('instructionEn').textContent=instructionTranslations[`${s.sourceId}:${s.condition}`]||'';$('players').innerHTML=models.map((m,i)=>player(m,i,s)).join('');bindPlayers();
+  $('navContext').textContent=currentDataset==='MINT'?'选择样例，横向试听六个模型对同一条声音指令的生成结果。':'先选择文本，再在右侧切换声音指令风格。';
+  document.querySelector('.prompt-card').dataset.condition=currentDataset==='MINT'?'MINT':condition;
+  document.querySelectorAll('.instruction-grid,.text-panel,.players').forEach(node=>{node.classList.remove('content-enter');void node.offsetWidth;node.classList.add('content-enter')});
 }
 render();

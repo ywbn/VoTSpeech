@@ -6,52 +6,87 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="theme-color" content="#07110f">
-  <meta name="description" content="指令驱动语音生成模型的对比试听 Demo。">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="VoTSpeech: Decoupling Voice Design from Speech Generation in Instruction-Following TTS. Method, results, and audio samples.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260917-zh387">
-  <title>Voice Design · Model Demo</title>
+  <link rel="stylesheet" href="styles.css?v=20260918-instruction-layout">
+  <link rel="stylesheet" href="research.css?v=20260918-overview-stacked">
+  <title>VoTSpeech · Voice-of-Thought Speech</title>
 </head>
 <body>
   <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
   <header class="topbar">
-    <a class="brand" href="#top" aria-label="返回顶部"><span class="brand-mark"><i></i><i></i><i></i><i></i><i></i></span><span>VOICE <b>DESIGN</b></span></a>
-    <div class="top-meta"><span class="live-dot"></span> 6 MODELS <span>·</span> 11 TEXTS <span>·</span> 3 STYLES</div>
+    <a class="brand" href="#top" aria-label="返回顶部"><span class="brand-mark"><i></i><i></i><i></i><i></i><i></i></span><span>VoT<b>Speech</b></span></a>
+    <nav class="paper-nav" aria-label="Page sections"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#samples">Listen</a></nav>
   </header>
 
   <main id="top">
-    <section class="intro">
-      <div>
-        <p class="eyebrow">INSTRUCTION-GUIDED SPEECH SYNTHESIS</p>
-        <h1>让声音，准确抵达<br><em>文字背后的意图。</em></h1>
-      </div>
-      <p class="intro-copy">选择一段文本，在 APS、DSD、RP 三种指令表达之间切换，再横向试听六种语音生成模型。</p>
+    <section class="paper-hero" lang="en">
+      <p class="eyebrow">VOICE-OF-THOUGHT SPEECH</p>
+      <h1>VoTSpeech</h1>
+      <p class="paper-title">Decoupling Voice Design from Speech Generation<br class="wide-break"> in Instruction-Following TTS</p>
+      <p class="authors">Wenbing Yang<sup>1</sup>, Qihang Lu<sup>2</sup>, Zihan Sun<sup>2</sup>, Peilei Jia<sup>2</sup>,<br> Yingming Gao<sup>1</sup>, Ya Li<sup>1,*</sup>, Jun Gao<sup>2,*</sup></p>
+      <p class="affiliations"><sup>1</sup> Beijing University of Posts and Telecommunications &nbsp; <sup>2</sup> Hello Group Inc.<br><span>* Corresponding authors</span></p>
+      <div class="paper-links"><a class="primary-link" href="#samples">Listen to the samples</a><a href="assets/VoTSpeech.pdf" target="_blank" rel="noopener">Read the paper ↗</a><a href="https://github.com/ywbn/VoTSpeech" target="_blank" rel="noopener">Project repository ↗</a></div>
     </section>
 
+    <section class="research-section overview" id="overview" lang="en">
+      <div class="section-heading"><p class="eyebrow">01 / OVERVIEW</p><h2>Design the voice. Then let it speak.</h2></div>
+      <div class="section-copy"><p>VoTSpeech separates <em>what voice to create</em> from <em>what that voice says</em>. A shared causal language model first interprets a natural-language instruction and guides a flow-based Voice DiT to predict an explicit, continuous voice representation. Speech generation is then conditioned on this designed voice.</p><p>Supervision combines speaker identity features with pooled audio VAE latents, capturing both identity and acoustic detail. With 1,543.52 hours of Chinese task-specific adaptation data, the model achieves the highest DSD and RP accuracy among the systems compared in the paper, alongside competitive intelligibility and strong subjective ratings.</p></div>
+    </section>
+
+    <section class="research-section method-section" id="method" lang="en">
+      <div class="section-heading"><p class="eyebrow">02 / METHOD</p><h2>A voice prior connects instruction and speech.</h2></div>
+      <p class="section-lead">A single backbone, with an explicit voice-design stage before synthesis.</p>
+      <figure class="architecture"><a href="assets/architecture.pdf" target="_blank" rel="noopener" aria-label="Open full-resolution architecture diagram"><img src="assets/architecture.png" alt="VoTSpeech architecture: instruction-conditioned Voice DiT predicts a continuous voice latent; dual-path conditioning guides the Causal LLM and Acoustic DiT, with speaker and VAE features supervising voice design." loading="lazy"></a><figcaption>VoTSpeech architecture: the designed voice conditions both language modeling and acoustic generation.</figcaption></figure>
+      <div class="method-notes"><article><span>01</span><h3>Interpret &amp; design</h3><p>The instruction prefix guides Voice DiT to sample a continuous voice latent before the synthesis text is processed.</p></article><article><span>02</span><h3>Condition both paths</h3><p>The designed voice conditions the causal language model and Acoustic DiT, connecting semantic planning with acoustic rendering.</p></article><article><span>03</span><h3>Generate with continuity</h3><p>Prefix KV-cache reuse avoids repeated instruction encoding. The same sampled voice latent is reused throughout speech generation.</p></article></div>
+    </section>
+
+    <section class="research-section results-section" id="results" lang="en">
+      <div class="section-heading"><p class="eyebrow">03 / RESULTS</p><h2>From instruction following to listening quality.</h2></div>
+      <p class="section-lead">VoTSpeech combines strong instruction-following accuracy with clear, expressive speech.</p>
+      <div class="result-highlights"><p><strong>84.8<span>%</span></strong>APS accuracy</p><p><strong>77.3<span>%</span></strong>DSD accuracy</p><p><strong>66.5<span>%</span></strong>RP accuracy</p><p><strong>2.58<span>%</span></strong>Character error rate</p></div>
+      <div class="table-scroll" role="region" aria-label="Paper comparison results" tabindex="0"><table><thead><tr><th rowspan="2" scope="col">Model</th><th colspan="4" scope="colgroup">Objective evaluation</th><th colspan="3" scope="colgroup">Subjective evaluation · 95% CI</th></tr><tr><th scope="col">APS ↑</th><th scope="col">DSD ↑</th><th scope="col">RP ↑</th><th scope="col">CER ↓</th><th scope="col">Naturalness ↑</th><th scope="col">Expressiveness ↑</th><th scope="col">Adherence ↑</th></tr></thead><tbody>
+      <tr class="ours-result"><th scope="row">VoTSpeech (Ours)</th><td>84.8</td><td><strong>77.3</strong></td><td><strong>66.5</strong></td><td>2.58</td><td><strong>4.12 ± 0.22</strong></td><td><strong>4.30 ± 0.18</strong></td><td><strong>4.26 ± 0.19</strong></td></tr>
+      <tr><th scope="row">Ming-Omni-TTS-0.5B</th><td>84.9</td><td>72.2</td><td>53.9</td><td><strong>2.48</strong></td><td>3.71 ± 0.27</td><td>3.71 ± 0.24</td><td>3.75 ± 0.25</td></tr>
+      <tr><th scope="row">Qwen3-TTS-12Hz-1.7B-VD</th><td><strong>87.1</strong></td><td>76.0</td><td>55.2</td><td>2.99</td><td>4.08 ± 0.21</td><td>4.10 ± 0.19</td><td>4.06 ± 0.20</td></tr>
+      <tr><th scope="row">MOSS-VoiceGenerator</th><td>73.1</td><td>70.2</td><td>58.9</td><td>5.03</td><td>3.86 ± 0.22</td><td>3.72 ± 0.18</td><td>3.70 ± 0.19</td></tr>
+      <tr><th scope="row">VoxCPM2</th><td>84.7</td><td>71.8</td><td>56.8</td><td>2.58</td><td>3.80 ± 0.25</td><td>3.82 ± 0.18</td><td>3.82 ± 0.17</td></tr>
+      </tbody></table></div>
+      <p class="metric-note">APS, DSD, RP and CER are percentages. Instruction accuracy follows InstructTTSEval-ZH with Gemini 2.5 Pro; CER uses Paraformer-ZH. Subjective ratings use a five-point scale from 24 listeners on 10 shared examples. Bold marks the best mean in each column.</p>
+    </section>
+
+    <section class="listening-intro" id="samples" lang="en"><p class="eyebrow">04 / AUDIO SAMPLES</p><h2>Listen across voices and instructions.</h2><p>Choose a dataset and an example, then compare the same instruction across six systems. Chinese instructions are paired with English translations for reading; the displayed translations do not indicate English-conditioned generation. “Finetune” is the direct fine-tuning baseline (FT).</p></section>
     <section class="lab" aria-label="模型试听台">
       <aside class="sample-nav">
         <div class="nav-head"><span>TEXT CASES</span><span id="sampleCount">01 / 11</span></div>
-        <p class="nav-context">先选择文本，再在右侧切换声音指令风格。</p>
+        <div class="dataset-tabs" id="datasetTabs" aria-label="选择评测数据集"></div>
+        <p class="nav-context" id="navContext">先选择文本，再在右侧切换声音指令风格。</p>
         <div class="sample-list" id="sampleList"></div>
       </aside>
 
       <div class="workspace">
+        <aside class="dataset-note" id="mintNote" hidden><p class="label">SUPPLEMENTARY EXAMPLES · MINT-BENCH</p><p lang="zh-CN">本组中文样例选自 <a href="https://arxiv.org/abs/2604.17958" target="_blank" rel="noopener">MINT-Bench</a> 数据集，仅用于补充观察模型对其他指令的响应。</p><p lang="en">These Chinese examples are selected from MINT-Bench solely to provide supplementary observations of how the models respond to additional instructions.</p></aside>
         <div class="prompt-card">
           <div class="prompt-meta">
             <span id="conditionBadge">APS</span>
             <span id="datasetLabel">InstructTTSEval</span>
             <span class="prompt-index" id="promptIndex">S01</span>
           </div>
-          <div class="condition-switcher">
+          <div class="condition-switcher" id="conditionSwitcher">
             <div class="condition-heading">
               <span>VOICE INSTRUCTION FORMAT</span>
               <strong>同一文本，切换指令表达</strong>
             </div>
             <div class="condition-tabs" id="conditionTabs" role="tablist" aria-label="声音指令风格"></div>
           </div>
-          <div class="prompt-grid">
-            <div><p class="label">朗读文本 / TEXT</p><p class="target-text" id="targetText"></p></div>
-            <div><p class="label">声音指令 / VOICE INSTRUCTION</p><p class="instruction" id="instruction"></p></div>
+          <div class="instruction-grid">
+            <div class="instruction-column"><p class="label">声音指令（中文） / CHINESE</p><p class="instruction" id="instruction"></p></div>
+            <div class="instruction-column" lang="en"><p class="label">VOICE INSTRUCTION / ENGLISH</p><p class="instruction-en" id="instructionEn"></p></div>
+          </div>
+          <div class="text-panel">
+            <p class="label">生成文本 / SYNTHESIS TEXT</p>
+            <p class="target-text" id="targetText"></p>
           </div>
         </div>
 
@@ -63,15 +98,8 @@
       </div>
     </section>
 
-    <section class="method">
-      <div class="method-grid">
-        <div class="method-item"><span>01</span><h3>APS</h3><p>细粒度属性描述，控制性别、音高、语速、音色与情绪等声学特征。</p></div>
-        <div class="method-item"><span>02</span><h3>DSD</h3><p>自然语言声音描述，在整体语境中塑造说话方式与表达质感。</p></div>
-        <div class="method-item"><span>03</span><h3>RP</h3><p>角色扮演提示，以身份、场景与沟通目的驱动声音表现。</p></div>
-      </div>
-    </section>
   </main>
-  <footer><span>VOICE DESIGN MODEL COMPARISON</span><span>198 AUDIO SAMPLES · 2026</span></footer>
-  <script src="app.js?v=20260917-zh387"></script>
+  <footer><span>VoTSpeech · Voice-of-Thought Speech</span><span>Selected audio examples · 2026</span></footer>
+  <script src="app.js?v=20260918-paper"></script>
 </body>
 </html>
