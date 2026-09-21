@@ -10,7 +10,7 @@
   <meta name="description" content="VoTSpeech: Decoupling Voice Design from Speech Generation in Instruction-Following TTS. Method, results, and audio samples.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260918-instruction-layout">
-  <link rel="stylesheet" href="research.css?v=20260918-overview-stacked">
+  <link rel="stylesheet" href="research.css?v=20260921-inline-dimensions">
   <title>VoTSpeech · Voice-of-Thought Speech</title>
 </head>
 <body>
@@ -56,7 +56,11 @@
       <p class="metric-note">APS, DSD, RP and CER are percentages. Instruction accuracy follows InstructTTSEval-ZH with Gemini 2.5 Pro; CER uses Paraformer-ZH. Subjective ratings use a five-point scale from 24 listeners on 10 shared examples. Bold marks the best mean in each column.</p>
     </section>
 
-    <section class="listening-intro" id="samples" lang="en"><p class="eyebrow">04 / AUDIO SAMPLES</p><h2>Listen across voices and instructions.</h2><p>Choose a dataset and an example, then compare the same instruction across six systems. Chinese instructions are paired with English translations for reading; the displayed translations do not indicate English-conditioned generation. “Finetune” is the direct fine-tuning baseline (FT).</p></section>
+    <section class="listening-intro" id="samples" lang="en">
+      <p class="eyebrow">04 / AUDIO SAMPLES</p>
+      <h2>Listen across voices and instructions.</h2>
+      <p>Choose a dataset and an example, then compare the same instruction across six systems. APS specifies fine-grained acoustic attributes such as gender, pitch, speaking rate, timbre, and emotion; DSD describes the intended voice quality and delivery style in natural language; RP defines a role, scene, or communicative intent that shapes the vocal performance. Chinese instructions are paired with English translations for reading; the displayed translations do not indicate English-conditioned generation. “Finetune” is the direct fine-tuning baseline.</p>
+    </section>
     <section class="lab" aria-label="模型试听台">
       <aside class="sample-nav">
         <div class="nav-head"><span>TEXT CASES</span><span id="sampleCount">01 / 11</span></div>
