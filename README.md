@@ -2,7 +2,7 @@
 
 **VoTSpeech: Decoupling Voice Design from Speech Generation in Instruction-Following TTS**
 
-[Online demo](https://ywbn.github.io/VoTSpeech/) · [Paper](assets/VoTSpeech.pdf)
+[Online demo](https://ywbn.github.io/VoTSpeech/)
 
 VoTSpeech (Voice-of-Thought Speech) separates voice design from speech generation through an explicit continuous voice representation. Given a natural-language voice instruction, a shared causal language model first guides a flow-based Voice DiT to design the voice. The resulting voice latent then conditions both language modeling and acoustic generation.
 
@@ -54,13 +54,3 @@ Wenbing Yang¹, Qihang Lu², Zihan Sun², Peilei Jia², Yingming Gao¹, Ya Li¹,
 
 ¹ Beijing University of Posts and Telecommunications  
 ² Hello Group Inc.
-
-## Local preview
-
-This repository is a static GitHub Pages site. To preview it locally:
-
-```bash
-python3 -m http.server 4173
-```
-
-Then open <http://127.0.0.1:4173/>.
