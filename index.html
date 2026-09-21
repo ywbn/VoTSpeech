@@ -45,15 +45,16 @@
     <section class="research-section results-section" id="results" lang="en">
       <div class="section-heading"><p class="eyebrow">03 / RESULTS</p><h2>From instruction following to listening quality.</h2></div>
       <p class="section-lead">VoTSpeech combines strong instruction-following accuracy with clear, expressive speech.</p>
-      <div class="result-highlights"><p><strong>84.8<span>%</span></strong>APS accuracy</p><p><strong>77.3<span>%</span></strong>DSD accuracy</p><p><strong>66.5<span>%</span></strong>RP accuracy</p><p><strong>2.58<span>%</span></strong>Character error rate</p></div>
+      <div class="result-highlights"><p><strong>84.8<span>%</span></strong>APS accuracy</p><p><strong>78.5<span>%</span></strong>DSD accuracy</p><p><strong>66.9<span>%</span></strong>RP accuracy</p><p><strong>2.58<span>%</span></strong>Character error rate</p></div>
       <div class="table-scroll" role="region" aria-label="Paper comparison results" tabindex="0"><table><thead><tr><th rowspan="2" scope="col">Model</th><th colspan="4" scope="colgroup">Objective evaluation</th><th colspan="3" scope="colgroup">Subjective evaluation · 95% CI</th></tr><tr><th scope="col">APS ↑</th><th scope="col">DSD ↑</th><th scope="col">RP ↑</th><th scope="col">CER ↓</th><th scope="col">Naturalness ↑</th><th scope="col">Expressiveness ↑</th><th scope="col">Adherence ↑</th></tr></thead><tbody>
-      <tr class="ours-result"><th scope="row">VoTSpeech (Ours)</th><td>84.8</td><td><strong>77.3</strong></td><td><strong>66.5</strong></td><td>2.58</td><td><strong>4.12 ± 0.22</strong></td><td><strong>4.30 ± 0.18</strong></td><td><strong>4.26 ± 0.19</strong></td></tr>
+      <tr class="ours-result"><th scope="row">VoTSpeech (Ours)</th><td>84.8</td><td><strong>78.5</strong></td><td><strong>66.9</strong></td><td>2.58</td><td><strong>4.12 ± 0.22</strong></td><td><strong>4.30 ± 0.18</strong></td><td><strong>4.26 ± 0.19</strong></td></tr>
       <tr><th scope="row">Ming-Omni-TTS-0.5B</th><td>84.9</td><td>72.2</td><td>53.9</td><td><strong>2.48</strong></td><td>3.71 ± 0.27</td><td>3.71 ± 0.24</td><td>3.75 ± 0.25</td></tr>
-      <tr><th scope="row">Qwen3-TTS-12Hz-1.7B-VD</th><td><strong>87.1</strong></td><td>76.0</td><td>55.2</td><td>2.99</td><td>4.08 ± 0.21</td><td>4.10 ± 0.19</td><td>4.06 ± 0.20</td></tr>
+      <tr><th scope="row">Qwen3-TTS-12Hz-1.7B-VD</th><td><strong>87.1</strong></td><td><u>76.0</u></td><td>55.2</td><td>2.99</td><td><u>4.08 ± 0.21</u></td><td>4.10 ± 0.19</td><td><u>4.06 ± 0.20</u></td></tr>
       <tr><th scope="row">MOSS-VoiceGenerator</th><td>73.1</td><td>70.2</td><td>58.9</td><td>5.03</td><td>3.86 ± 0.22</td><td>3.72 ± 0.18</td><td>3.70 ± 0.19</td></tr>
-      <tr><th scope="row">VoxCPM2</th><td>84.7</td><td>71.8</td><td>56.8</td><td>2.58</td><td>3.80 ± 0.25</td><td>3.82 ± 0.18</td><td>3.82 ± 0.17</td></tr>
+      <tr><th scope="row">VoxCPM2</th><td>84.7</td><td>71.8</td><td>56.8</td><td><u>2.58</u></td><td>3.80 ± 0.25</td><td>3.82 ± 0.18</td><td>3.82 ± 0.17</td></tr>
+      <tr><th scope="row">dots.tts-soar (fine-tuning)</th><td><u>85.3</u></td><td>75.0</td><td><u>64.3</u></td><td>2.71</td><td>3.87 ± 0.23</td><td><u>4.12 ± 0.18</u></td><td>3.96 ± 0.19</td></tr>
       </tbody></table></div>
-      <p class="metric-note">APS, DSD, RP and CER are percentages. Instruction accuracy follows InstructTTSEval-ZH with Gemini 2.5 Pro; CER uses Paraformer-ZH. Subjective ratings use a five-point scale from 24 listeners on 10 shared examples. Bold marks the best mean in each column.</p>
+      <p class="metric-note">APS, DSD, RP and CER are percentages. Instruction accuracy follows InstructTTSEval-ZH with Gemini 2.5 Pro; CER uses Paraformer-ZH. Subjective ratings use a five-point scale from 24 listeners on 10 shared examples. Bold and underline mark the best and second-best means in each column.</p>
     </section>
 
     <section class="listening-intro" id="samples" lang="en">
