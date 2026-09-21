@@ -16,26 +16,6 @@ VoTSpeech (Voice-of-Thought Speech) separates voice design from speech generatio
 - Trained with 1,543.52 hours of Chinese task-specific adaptation data.
 - Achieves 84.8% APS, 77.3% DSD, and 66.5% RP instruction-following accuracy on InstructTTSEval-ZH, with a 2.58% character error rate.
 
-## Audio demo
-
-The demo compares VoTSpeech with five systems:
-
-- Ming-Omni-TTS-0.5B
-- Qwen3-TTS-12Hz-1.7B-VD
-- MOSS-VoiceGenerator
-- VoxCPM2
-- Direct fine-tuning baseline (Finetune / FT)
-
-For InstructTTSEval-ZH, each synthesis text can be heard under three instruction formats:
-
-- **APS** — Acoustic-Parameter Specification
-- **DSD** — Descriptive-Style Directive
-- **RP** — Role-Play
-
-Chinese voice instructions are paired with English translations for readability. The translations are display-only and do not indicate English-conditioned generation.
-
-The demo also includes selected Chinese examples from [MINT-Bench](https://arxiv.org/abs/2604.17958), used only to supplement observations of how the models respond to additional instructions.
-
 ## Paper results
 
 | Model | APS ↑ | DSD ↑ | RP ↑ | CER ↓ | Naturalness ↑ | Expressiveness ↑ | Adherence ↑ |
@@ -46,7 +26,9 @@ The demo also includes selected Chinese examples from [MINT-Bench](https://arxiv
 | MOSS-VoiceGenerator | 73.1 | 70.2 | 58.9 | 5.03 | 3.86 ± 0.22 | 3.72 ± 0.18 | 3.70 ± 0.19 |
 | VoxCPM2 | 84.7 | 71.8 | 56.8 | 2.58 | 3.80 ± 0.25 | 3.82 ± 0.18 | 3.82 ± 0.17 |
 
-APS, DSD, RP, and CER are reported as percentages. Subjective scores use a five-point scale and are shown with 95% confidence intervals.
+Instruction-following performance is evaluated on **InstructTTSEval-ZH**. Following its evaluation protocol, **Gemini 2.5 Pro** assesses compliance for Acoustic-Parameter Specification (APS), Descriptive-Style Directive (DSD), and Role-Play (RP), with accuracy reported as a percentage. Speech intelligibility is measured by the overall character error rate (CER) across all three categories using a pretrained **Paraformer-ZH** ASR model.
+
+For subjective evaluation, **24 listeners** rate outputs from every system on the same **10 randomly selected examples** using a five-point scale. Naturalness measures perceived audio quality, Expressiveness measures how well the delivery fits the synthesis text, and Adherence measures compliance with the voice-design instruction. The table reports mean opinion scores with **95% confidence intervals**.
 
 ## Authors
 
