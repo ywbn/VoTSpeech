@@ -58,8 +58,7 @@ pip install -r requirements.txt
 
 The inference implementation is included in [`inference/`](inference/).
 Model weights are available from
-[`Ywbn16/VoTSpeech`](https://huggingface.co/Ywbn16/VoTSpeech) on Hugging Face
-and are intentionally excluded from this GitHub repository. The runtime can
+[`Ywbn16/VoTSpeech`](https://huggingface.co/Ywbn16/VoTSpeech) on Hugging Face. The runtime can
 download the checkpoint automatically when the repository ID is passed as
 `MODEL_NAME_OR_PATH`.
 
