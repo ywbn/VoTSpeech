@@ -1,8 +1,17 @@
+<div align="center">
+
 # VoTSpeech
 
-**VoTSpeech: Decoupling Voice Design from Speech Generation in Instruction-Following TTS**
+### Decoupling Voice Design from Speech Generation in Instruction-Following TTS
 
-[Online demo](https://ywbn.github.io/VoTSpeech/) · [Model weights](https://huggingface.co/Ywbn16/VoTSpeech)
+<p>
+  <a href="https://ywbn.github.io/VoTSpeech/"><img src="https://img.shields.io/badge/Online_Demo-6C4BC1?style=for-the-badge" alt="Online Demo"></a>
+  <a href="https://huggingface.co/Ywbn16/VoTSpeech"><img src="https://img.shields.io/badge/Model_Weights-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000" alt="Model Weights"></a>
+</p>
+
+</div>
+
+---
 
 VoTSpeech (Voice-of-Thought Speech) separates voice design from speech generation through an explicit continuous voice representation. Given a natural-language voice instruction, a shared causal language model first guides a flow-based Voice DiT to design the voice. The resulting voice latent then conditions both language modeling and acoustic generation.
 
