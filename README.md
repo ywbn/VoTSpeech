@@ -67,12 +67,18 @@ download the checkpoint automatically when the repository ID is passed as
 
 ### JSONL input
 
-Each row must contain `id`, `text`, and either a top-level `instruction` or
-InstructTTSEval-style `APS`, `DSD`, and `RP` instruction fields:
+For ordinary voice design, use one JSON object per line with `text` (the words
+to speak) and `instruction` (the desired voice). We recommend a unique `id`
+to name each output. The included [`examples/voice_design.jsonl`](examples/voice_design.jsonl)
+uses this format:
 
 ```json
 {"id":"example_zh","text":"今天阳光很好，我们一起出去走走吧。","instruction":"一位年轻女性，声音温暖明亮，语速自然，带着轻松愉快的情绪。"}
 ```
+
+This produces one audio file, `default/example_zh.wav`, under your output
+directory. `APS`, `DSD`, and `RP` are not required for this format. If `id`
+is omitted, the loader uses `uid` or the input line number.
 
 ### Single GPU
 
@@ -97,8 +103,8 @@ not use DDP or NCCL. Existing non-empty WAV files are skipped by default.
 
 ```bash
 MODEL_NAME_OR_PATH=Ywbn16/VoTSpeech \
-INPUT_MANIFEST=/path/to/zh.parquet \
-OUTPUT_DIR=outputs/instructttseval_zh \
+INPUT_MANIFEST=examples/voice_design.jsonl \
+OUTPUT_DIR=outputs/example \
 GPU_IDS=0,1,2,3 \
 NUM_GPUS=4 \
 TTS_LANGUAGE=zh \
@@ -106,7 +112,34 @@ SEED=1542 \
 bash inference/scripts/run_batch_infer_voice_design.sh
 ```
 
-For InstructTTSEval-ZH, the convenience wrapper infers `NUM_GPUS` from
+Use a JSONL file with multiple rows to distribute requests across GPUs.
+
+### InstructTTSEval input (optional)
+
+For benchmark-style generation, supply `text` and one or more of the following
+instruction fields instead of the top-level `instruction`:
+
+- `APS`: Acoustic-Parameter Specification.
+- `DSD`: Descriptive-Style Directive.
+- `RP`: Role-Play.
+
+For example, [`examples/instructttseval_format.jsonl`](examples/instructttseval_format.jsonl)
+contains the following illustrative input (one JSON object on one line):
+
+```json
+{"id":"example_zh","text":"今天阳光很好，我们一起出去走走吧。","APS":"年轻女性，音高偏高，语速适中，音量适中。","DSD":"声音温暖明亮，语气轻松自然，带着愉快的情绪。","RP":"你是一位热情的导游，正在邀请游客一起散步。"}
+```
+
+Use this file as `INPUT_MANIFEST` in either command above. With these string
+fields, the three outputs are `APS/example_zh_APS.wav`,
+`DSD/example_zh_DSD.wav`, and `RP/example_zh_RP.wav`.
+JSONL also supports nested fields such as `"APS": {"instruction": "..."}`;
+these retain the original ID, producing `APS/example_zh.wav`.
+If a non-empty top-level `instruction` is present, it takes precedence over
+the benchmark fields. By default, all available non-empty APS/DSD/RP fields
+are processed; set `VARIANTS=APS,DSD` to select a subset.
+
+For an InstructTTSEval-ZH Parquet file, the convenience wrapper infers `NUM_GPUS` from
 `GPU_IDS`:
 
 ```bash
@@ -115,9 +148,44 @@ GPU_IDS=0,1,2,3 \
 bash examples/infer_instructttseval.sh /path/to/zh.parquet outputs/instructttseval_zh
 ```
 
-Generated audio is stored under `<output-dir>/<variant>/<id>.wav`. A
+Audio is always saved beneath `OUTPUT_DIR`; input `gen_path` values do not
+control the output location. A
 `results.jsonl` manifest records the instruction, output path, seed, runtime,
 and generation status for each request.
+
+## License
+
+- **Inference code:** [Apache-2.0](inference/LICENSE).
+- **VoTSpeech model weights:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+  Non-commercial use, sharing, and adaptation are permitted with appropriate
+  credit, a license link, and an indication of changes. When sharing the
+  weights or adaptations, credit VoTSpeech and link to the
+  [model repository](https://huggingface.co/Ywbn16/VoTSpeech).
+
+No training datasets or original training recordings are distributed with this
+release. Rights in third-party recordings, texts, performances, and other
+source materials remain with their respective rights holders. The weight
+license does not grant rights to those materials or waive privacy, publicity,
+or personality rights, and does not replace separately applicable data-use
+agreements.
+
+## Responsible use
+
+VoTSpeech is intended for research and evaluation of instruction-guided voice
+design and expressive speech synthesis. Commercial use of the licensed weights
+is not permitted under CC BY-NC 4.0.
+
+We ask users to identify publicly shared outputs as synthetic speech, obtain
+any permissions needed when imitating an identifiable voice, and avoid
+deceptive impersonation, fraud, harassment, or privacy-invasive applications.
+These are responsible-use recommendations, not additional CC license terms.
+
+The model may produce inaccurate pronunciations, unintended voice attributes,
+or audio artifacts. It is provided as is, without warranties, to the extent
+permitted by law. Please assess generated outputs before using them. Licensing
+or rights concerns can be raised through the
+[Hugging Face community page](https://huggingface.co/Ywbn16/VoTSpeech/discussions);
+please do not post sensitive personal information publicly.
 
 ## Authors
 
